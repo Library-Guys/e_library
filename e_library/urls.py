@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from auth_users import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('books.urls', namespace='books')),
+    
+    path('login/',auth_views.signin_page, name = 'signin_page'),
+    path('logout/', auth_views.signout_page, name = 'signout_page'),
+    path('register/', auth_views.register_page, name = 'register')
+    
 ]
 
 if settings.DEBUG:
