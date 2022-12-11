@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+
+{%load static%}
+{% block title%}Home{%endblock%}
+
+{%block content%}
+<main>
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="pb-3 h5">All Books</div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+          <a href = "">Add Books</a>
+
+          {% for b in book %}
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="img-fluid" alt="Responsive image" src="{{ b.image.url}}">
+              <div class="card-body">
+                <p class="card-text">
+                  <a class="text-dark text-decoration-none" href="">{{ b.title }}</a>
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">9min read</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  </main>
+
+  <!--page number-->
+  {% comment %} <nav aria-label="...">
+    <ul class="pagination ">
+      {% if page_obj.has_previous %}
+      <li class="page-item ">
+        <a class="page-link" href="?page={{page_obj.previous_page_number}}" tabindex="-1">Previous</a>
+      </li>
+      {% endif %}
+
+      <li class="page-item"><a class="page-link" href="">Page: {{ page_obj.number }}</a></li>
+      
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <!-- <a class="page-link" href="?page={{ page_obj.paginator.num_page }}">Last &raquo;</a> -->
+      </li>
+      {%endif%}
+    </ul>
+  </nav> {% endcomment %}
+
+{%endblock%} 
