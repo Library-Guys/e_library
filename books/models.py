@@ -33,3 +33,28 @@ class Pdf_Info(models.Model):
     
     def __str__(self):
         return self.title
+
+#
+# class Books(models.Model):
+#     Name = models.CharField(max_length=100)
+#     Author = models.CharField(max_length=100)
+#     Edition = models.CharField(max_length=30)
+#     title = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.Name
+
+class Staff(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    branch = models.CharField(max_length=10)
+    phone = models.CharField(max_length=10, blank=True)
+    image = models.ImageField(upload_to="", blank=True)
+
+    def __str__(self):
+        return str(self.user)
+
+class IssuedBook(models.Model):
+    student_id = models.CharField(max_length=100, blank=True)
+    isbn = models.CharField(max_length=13)
+    issued_date = models.DateField(auto_now=True)
+    # expiry_date = models.DateField(default=expiry)
