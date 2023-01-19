@@ -30,6 +30,12 @@ class Pdf_Info(models.Model):
     updated = models.DateTimeField(auto_now=True)
     book_pdf = models.FileField(upload_to='book/')
     
+    def get_absolute_url(self):
+        return reverse("books:book_detail", args=[self.slug])
     
     def __str__(self):
         return self.title
+    
+    
+
+    

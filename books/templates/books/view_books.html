@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Books in the Library{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center"><u>All Books List</u></h1>
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Publication</th>
+                <th>ISBN Number</th>
+                <th>Category</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for b in book %}
+            <tr>
+                <td>{{forloop.counter}}.</td>
+                <td>{{b.title}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.publisher}}
+                <td></td>
+                <td>{{b.category}}</td>
+                <td><a href="{% url 'books:delete_book' b.id%}">Delete book</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

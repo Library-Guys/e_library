@@ -14,7 +14,7 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form type="POST" action = "{% url 'store:signup_page'%}">
+              <form type="POST" action = "{% url 'auth_users:register'%}">
                 {%csrf_token%}
 
                 <div class="form-outline mb-2">
@@ -49,7 +49,7 @@
                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Register</button>
                 </div>
 
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'store:signin_page'%}"
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'auth_users:signin_page'%}"
                     class="fw-bold text-body"><u>Login here</u></a></p>
 
               </form>

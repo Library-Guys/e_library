@@ -17,13 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from .import views
 
-app_name = 'books'
-
+app_name = 'auth_users'
 urlpatterns = [
-    path('', views.digital_books, name = 'digital_books'),
-    path('view-book/', views.view_book, name = 'view_book'),
-    path('add-book/', views.add_Book, name = 'add_book'),
-    path('book-detail/<slug:slug>/', views.book_detail, name = 'book_detail'),
-    path('delete-book/<str:pk>/', views.delete_book, name = 'delete_book')
-    # path( ' ', include('books.urls', namespace='books')),
+    path('login/', views.signin_page, name = 'signin_page'),
+    path('logout/', views.signout_page, name = 'signout_page'),
+    path('register/', views.register_page, name = 'register'),
+    
+    path('dashboard/', views.dashboard, name = 'dashboard'),
+    path('admin-dashboard/', views.admin_dashboard, name = 'admin_dashboard'),
+    path('staff-dashboard/', views.staff_dashboard, name = 'staff_dashboard'),
+    path('user-dashboard/', views.user_dashboard, name = 'user_dashboard'),
+    
+    path('profile/', views.profile, name= 'profile'),
+    
 ]
+
