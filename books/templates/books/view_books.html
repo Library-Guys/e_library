@@ -26,7 +26,8 @@
                 <td>{{b.publisher}}
                 <td></td>
                 <td>{{b.category}}</td>
-                <td><a href="{% url 'books:delete_book' b.id%}">Delete book</a></td>
+                {% comment %} <td><a href="{% url 'books:delete_book' b.id%}">Delete book</a></td> {% endcomment %}
+                <td><a href="{% url 'books:delete_book' b.id%}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>

@@ -90,4 +90,16 @@ def profile(request):
     }
     return render(request, 'auth_users/profile.html')
   
+def view_user(request):
+    # if request.user.is_active and request.user.is_staff:
+    users = Profile.objects.all()
+        
+    context = {
+        'users':users,
+    }
+    return render(request, "auth_users/view_user.html", context)
 
+def delete_User(request, myid):
+    users = Profile.objects.filter(id=myid)
+    users.delete()
+    return redirect("auth_users:view_users")

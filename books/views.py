@@ -23,6 +23,8 @@ def view_book(request):
     }
     return render(request, 'books/view_books.html', context)
 
+
+
 # @login_required()
 @staff_member_required()
 def add_Book(request,pk=None):
@@ -43,14 +45,14 @@ def add_Book(request,pk=None):
     }
     return render(request, 'books/addbook.html', context)
 
-
+@staff_member_required()
 def book_detail(request, slug):
     book = get_object_or_404(Pdf_Info, slug = slug)
     
     context = {'book':book}
     return render(request, 'books/book_detail.html', context)
 
-
+@staff_member_required()
 def delete_book(request, pk):
     book = Pdf_Info.objects.filter(id = pk)
     
@@ -65,3 +67,20 @@ def delete_book(request, pk):
         'book':book
     }
     return render(request, 'books/delete.html', context)
+
+
+
+def search(request):
+    queries = request.GET.get('query', False)# here 'query' is from 'name= query' in navbar
+    if len(queries) > 50:
+        book = Pdf_Info.objects.none()
+    else:
+        book = Pdf_Info.objects.filter(title__icontains = queries)
+    
+    if book.count() == 0:
+        messages.warning(request, 'Search result not found.Please search again.')
+    context = {
+        'book':book,
+        'queries':queries 
+    }
+    return render(request, 'books/search.html', context)
