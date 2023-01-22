@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{book.title}}
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <main class="pt-5">
+        <div class="row g-3">
+            <div class="col-md-5 col-lg-5 order-md-first bg-light"><!--image will be in the left side of the page-->
+                <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ book.image.url }}">
+            </div>
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5"><!--right hand side section-->
+                <h1 class="mb-0 h4">{{ book.title }}</h1>
+                <p><span class="lead">{{ book.author }}</span> (Author)</p>
+                <p><span class="lead">{{ book.publisher }}</span> (Publisher)</p>
+                <p>{{ book.description}}</p>
+                <div class="border">
+                    <div class="col">
+                        <div class="row p-3">
+                            <div class="col-6 text-end">
+                                <a href="">
+                                    <button data-product = "" data-action = "add" type="button" class="btn btn-secondary btn-sm add-btn">
+                                        {{book.book_pdf}}Read Book <!--'data-action = "add"' for when we click the button product is added to the cart  -->
+                                    </button>
+                                </a>    
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+{% endblock %}

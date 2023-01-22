@@ -20,6 +20,13 @@ from .import views
 app_name = 'books'
 
 urlpatterns = [
-    path('', views.items, name = 'items'),
+    path('', views.digital_books, name = 'digital_books'),
+    
+    path('view-book/', views.view_book, name = 'view_book'),
+    path('add-book/', views.add_Book, name = 'add_book'),
+    path('book-detail/<slug:slug>/', views.book_detail, name = 'book_detail'),
+    path('delete-book/<str:pk>/', views.delete_book, name = 'delete_book'),
+    
+    path('search/', views.search, name = 'search'),
     # path( ' ', include('books.urls', namespace='books')),
 ]

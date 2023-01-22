@@ -17,18 +17,23 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from auth_users import views as auth_views
+# from auth_users import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('books.urls', namespace='books')),
+    path('auth/', include('auth_users.urls')),
     
-    path('login/',auth_views.signin_page, name = 'signin_page'),
-    path('logout/', auth_views.signout_page, name = 'signout_page'),
-    path('register/', auth_views.register_page, name = 'register')
+    # path('login/',auth_views.signin_page, name = 'signin_page'),
+    # path('logout/', auth_views.signout_page, name = 'signout_page'),
+    # path('register/', auth_views.register_page, name = 'register'),
+    # path('admin-dashboard/', auth_views.admin_dashboard, name = 'admin_dashboard'),
+    # path('staff-dashboard/', auth_views.staff_dashboard, name = 'staff_dashboard'),
+    # path('user-dashboard/', auth_views.user_dashboard, name = 'user_dashboard')
     
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    
     

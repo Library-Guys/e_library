@@ -1,0 +1,54 @@
+{% extends 'base.html' %}  
+{%load static%}
+
+{%block title%}User Dashboard{%endblock%}
+  
+{% block content %}  
+<a href="{% url 'books:view_book'%}">All books</a>
+<a href="{% url 'auth_users:profile'%}">Profile</a>
+<a href="{% url 'auth_users:view_user'%}">All Users</a>
+
+<div class="container">
+    <aside>
+        <div class="top">
+            <div class="logo">
+            <img src="logo.jpg">
+            <h2><span class="danger">User</span class="danger"> <span> Dashboard</span></h2>
+            </div>
+            <div class="close" id="btn-close">
+            <span class="material-symbols-sharp">close</span>
+            </div>
+        </div>
+    
+
+        <div class="sidebar">
+            <a href="#">
+                <span class="material-symbols-sharp">grid_view</span>
+                <h3>Dashboard</h3>
+            </a>
+            <a href="#" class="active">
+                <span class="material-symbols-sharp">person_add</span>
+                <h3>User</h3>
+            </a>
+            <a href="#">
+                <span class="material-symbols-sharp">menu_book</span>
+                <h3>Add Book</h3>
+            </a>
+            <a href="#">
+                <span class="material-symbols-sharp">settings</span>
+                <h3>Setting</h3>
+            </a>
+            <a href="#">
+                <span class="material-symbols-sharp">person</span>
+                <h3>Add Student</h3>
+            </a>
+            <a href="#" class="log">
+                <span class="material-symbols-sharp">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+    </aside>
+</div>
+
+
+{%endblock%}
