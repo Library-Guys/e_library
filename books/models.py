@@ -35,7 +35,7 @@ class Pdf_Info(models.Model):
     
     def __str__(self):
         return self.title
-<<<<<<< HEAD
+
 
 #
 # class Books(models.Model):
@@ -61,9 +61,3 @@ class IssuedBook(models.Model):
     isbn = models.CharField(max_length=13)
     issued_date = models.DateField(auto_now=True)
     # expiry_date = models.DateField(default=expiry)
-=======
-    
-    
-
-    
->>>>>>> demo
