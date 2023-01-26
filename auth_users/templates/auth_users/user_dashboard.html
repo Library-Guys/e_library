@@ -13,7 +13,7 @@
         <div class="top">
             <div class="logo">
             <img src="logo.jpg">
-            <h2><span class="danger">User</span class="danger"> <span> Dashboard</span></h2>
+            <h2>lib<span class="danger">rary</span class="danger"> Manag<span>ement</span></h2>
             </div>
             <div class="close" id="btn-close">
             <span class="material-symbols-sharp">close</span>
@@ -48,7 +48,187 @@
             </a>
         </div>
     </aside>
+    <!--------------End of aside ---------------------------->
+    <main>
+        <h1>Dashboard</h1>
+        <div class="date">
+            <input type="date" name="">
+        </div>
+        <div class="insights">
+            <div class="sales">
+                <span class="material-symbols-sharp">monitoring</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Total sales</h3>
+                        <h1>$2500</h1>
+                        <small>last 24 hour</small>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>90%</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!----------------------------------End of sales------------------>
+            <div class="expensis">
+                <span class="material-symbols-sharp">bar_chart</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Expensis</h3>
+                        <h1>$200</h1>
+                        <small>last 24 hour</small>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>30%</p>
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+            <!------------------------------End of Expenses------------------>
+            <div class="income">
+                <span class="material-symbols-sharp">stacked_line_chart</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Income</h3>
+                        <h1>$2500</h1>
+                        <small>last 24 hour</small>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>40%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!------------------------------End of Expenses------------------>
+        </div>
+        <!----------------------------end of insights------------------------>
+        <div class="recent-order">
+            <h2>Recent Order</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Number</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cheese Ball</td>
+                        <td>8854</td>
+                        <td>$50</td>
+                        <td class="warning">pending</td>
+                        <td class="primary">Detail</td>
+                    </tr>
+                    <tr>
+                        <td>Mango juice</td>
+                        <td>854</td>
+                        <td>Dues</td>
+                        <td class="warning">pending</td>
+                        <td class="primary">Detail</td>
+                    </tr>
+                    <tr>
+                        <td>PineApple</td>
+                        <td>884</td>
+                        <td>Pending</td>
+                        <td class="warning">pending</td>
+                        <td class="primary">Detail</td>
+                    </tr>
+                    <tr>
+                        <td>Gauri himal product</td>
+                        <td>885</td>
+                        <td>Dues</td>
+                        <td class="warning">pending</td>
+                        <td class="primary">Detail</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="#">Show All</a>
+        </div>
+    </main>
+    <!--------------------End of Main------------------>
+    <div class="right">
+        <div class="top">
+            <button>
+                <span class="material-symbols-sharp">menu</span>
+            </button>
+            <div class="toggle">
+                <span class="material-symbols-sharp active">light_mode</span>
+                <span class="material-symbols-sharp">dark_mode</span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Hey <b>suman</b></p>
+                    <small class="mute-text">Admin</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="suman.jpg">
+                </div>
+            </div>
+        </div>
+        <!----------------end of top--------------->
+            <div class="Recent-update">
+                <h2>Recent Updates</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="suman.jpg">
+                        </div>
+                        <div class="message">
+                            <p><b>suman</b>looking a good dashboard design</p>
+                            <small class="mute-text">3 minute ago</small>
+                        </div>
+                        <div class="profile-photo">
+                            <img src="suman.jpg">
+                        </div>
+                        <div class="message">
+                            <p><b>suman</b>looking a good dashboard design</p>
+                            <small class="mute-text">3 minute ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <!-------------------------------sales analysis------------------------>
+          <div class="sales-analysis">
+              <h2>Sales Analysis</h2>
+              <div class="item online">
+                  <div class="icons">
+                      <span class="material-symbols-sharp">shopping_cart</span>
+                  </div>
+                  <div class="right">
+                      <div class="info">
+                      <h3>ONLINE</h3>
+                      <small class="mute-text">last 24 hrs</small>
+                      </div>
+                      <h3 class="success">+43%</h3>
+                      <h3>56667</h3>
+                  </div>
+              </div>
+                  <div class="item-add-product"> 
+                      <div>
+                          <span class="material-symbols-sharp">add</span>
+                          <h3>Add Product</h3>
+                      </div>
+                 </div>
+          </div>
+          
+    </div>
 </div>
-
 
 {%endblock%}
