@@ -1,6 +1,9 @@
 {% extends "base.html"%}
 
 {%load static%}
+ <head>
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/home.css' %}">
+  </head>
 {% block title%}Home{%endblock%}
 
 {%block content%}
@@ -13,20 +16,31 @@
           <a href = "{% url 'books:add_book'%}">Add Books</a>
 
           {% for b in book %}
-          
-          <div class="col">
-            <div class="card shadow-sm">
-              <img class="img-fluid" alt="Responsive image" src="{{ b.image.url}}">
-              <div class="card-body">
-                <p class="card-text">
-                  <a class="text-dark text-decoration-none" href="{{b.get_absolute_url}}">{{ b.title }}</a>
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-muted">9min read</small>
-                </div>
-              </div>
-            </div>
-          </div>
+
+        		<div class="card">
+            <a class='card-link' href="">
+                    <img src="{{b.image.url}}" alt="Responsive image" />
+            <div class="card-body">
+
+                    <div class="card-title">
+                            {{b.title}}
+                    </div>
+                    <h3 style="font-size:20px;">{{b.author}}</h3>
+
+                    <h4 class='price'>{{b.publisher}}</h4>
+                    </div>
+                 </a>
+					<div class='button-wrapper'>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+					</div>
+
+
+    		 </div>
+
           {% endfor %}
   
         </div>
