@@ -14,7 +14,9 @@
                 <th>Publication</th>
                 <th>ISBN Number</th>
                 <th>Category</th>
+                {% if request.user.is_superuser %}
                 <th>Delete</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -27,7 +29,9 @@
                 <td></td>
                 <td>{{b.category}}</td>
                 {% comment %} <td><a href="{% url 'books:delete_book' b.id%}">Delete book</a></td> {% endcomment %}
+                {% if request.user.is_superuser %}
                 <td><a href="{% url 'books:delete_book' b.id%}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</a></td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>

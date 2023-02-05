@@ -1,0 +1,37 @@
+
+
+
+    <aside>
+        <div class="top">
+            <div class="logo">
+            <h2>{{user.username}}(Staff)</h2>
+            </div>
+            <div class="close" id="btn-close">
+            <span class="material-symbols-sharp">close</span>
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+            <a href="{% url 'auth_users:staff_dashboard' %}">
+                <span class="material-symbols-sharp">grid_view</span>
+                <h3>Dashboard</h3>
+            </a>
+            <a href="{% url 'auth_users:view_user' %}" class="active">
+                <span class="material-symbols-sharp">person_add</span>
+                <h3>User</h3>
+            </a>
+            <a href="{% url 'books:add_book' %}">
+                <span class="material-symbols-sharp">menu_book</span>
+                <h3>Add Book</h3>
+            </a>
+            <a href="#">
+                <span class="material-symbols-sharp">settings</span>
+                <h3>Setting</h3>
+            </a>
+            <a href="{% url 'books:view_book' %}">
+                <span class="material-symbols-sharp">menu_book</span>
+                <h3>view book</h3>
+            </a>
+        </div>
+    </aside>
