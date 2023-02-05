@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
+from django.urls import reverse
 
 #for reset password
 from django.core.mail import send_mail, BadHeaderError
@@ -80,27 +81,42 @@ def register_page(request):
     }
     return render(request, 'auth_users/register.html', context)
     
-@login_required
+@login_required(login_url='auth_users:signin')
 def profile(request):
-    if request.method == 'POST':
-        user_form = UpdateUserForm(request.POST, instance=request.user)
-        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+    user_profile = Profile.objects.all()
+    context = {
+        'user_profile':user_profile,
+    }
+    
+    return render(request, 'auth_users/profile.html', context)
 
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, 'Your profile is updated successfully')
+
+def edit_profile_image(request):
+    if request.method == 'POST':
+        form = ProfileImageForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your profile image has been updated!')
             return redirect('auth_users:profile')
     else:
-        user_form = UpdateUserForm(instance=request.user)
-        profile_form = UpdateProfileForm(instance=request.user.profile)
+        form = ProfileImageForm(instance=request.user.profile)
+        
+    return render(request, 'auth_users/edit_profile_image.html', {'form': form})
 
-    context = {
-        'user_form':user_form,
-        'profile_form':profile_form
-    }
-    return render(request, 'auth_users/profile.html')
-  
+def edit_profile_detail(request):
+    if request.method == 'POST':
+        form = ProfileWithoutImageForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your profile image has been updated!')
+            return redirect('auth_users:profile')
+    else:
+        form = ProfileWithoutImageForm(instance=request.user.profile)
+        
+    return render(request, 'auth_users/edit_profile.html', {'form': form})
+
+
+
 def view_user(request):
     # if request.user.is_active and request.user.is_staff:
     users = Profile.objects.all()

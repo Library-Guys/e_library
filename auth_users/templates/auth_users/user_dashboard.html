@@ -4,6 +4,13 @@
 {%block title%}User Dashboard{%endblock%}
   
 {% block content %}  
+
+<head>
+
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/main.css' %}">
+   
+</head>
+
 <a href="{% url 'books:view_book'%}">All books</a>
 <a href="{% url 'auth_users:profile'%}">Profile</a>
 <a href="{% url 'auth_users:view_user'%}">All Users</a>

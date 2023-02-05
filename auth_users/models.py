@@ -15,7 +15,7 @@ class Profile(models.Model):
     bio = models.TextField()
 
     def get_absolute_url(self):
-        return reverse("auth_users:view_user", args=[self.slug])
+        return reverse("auth_users:profile", args=[self.slug])
 
     def __str__(self):
         return self.user.username
