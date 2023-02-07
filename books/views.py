@@ -47,7 +47,8 @@ def add_Book(request,pk=None):
 
 @staff_member_required()
 def book_detail(request, slug):
-    book = get_object_or_404(Pdf_Info, slug = slug)
+    # book = get_object_or_404(Pdf_Info, slug = slug)
+    book = Pdf_Info.objects.get(slug=slug)
     
     context = {'book':book}
     return render(request, 'books/book_detail.html', context)
