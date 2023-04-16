@@ -1,0 +1,113 @@
+{% extends 'base.html' %}  
+{%load static%}
+
+{%block title%}Admin Dashboard{%endblock%}
+  
+{% block content %}  
+<a href="{% url 'books:view_book'%}">All books</a>
+<a href="{% url 'auth_users:profile'%}">Profile</a>
+<head>
+			<!-- stylesheet -->
+			<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+		</head>
+
+			<div class="container">
+				<aside>
+					<div class="top">
+						<div class="logo">
+						<h2>{{user.username}}<span class="danger"></span class="danger">(Admin)</h2>
+						</div>
+						<div class="close" id="btn-close">
+						<span class="material-symbols-sharp">close</span>
+						</div>
+					</div>
+
+
+					<div class="sidebar">
+						<a href="{% url 'auth_users:staff_dashboard' %}">
+							<span class="material-symbols-sharp">grid_view</span>
+							<h3>Dashboard</h3>
+						</a>
+						<a href="{% url 'auth_users:view_user' %}" class="active">
+							<span class="material-symbols-sharp">person_add</span>
+							<h3>User</h3>
+						</a>
+						<a href="{% url 'books:add_book' %}">
+							<span class="material-symbols-sharp">menu_book</span>
+							<h3>Add Book</h3>
+						</a>
+						<a href="#">
+							<span class="material-symbols-sharp">settings</span>
+							<h3>Setting</h3>
+						</a>
+						<a href="{% url 'books:view_book' %}">
+							<span class="material-symbols-sharp">menu_book</span>
+							<h3>view book</h3>
+						</a>
+					</div>
+				</aside>
+				<main>
+			<div class="insights">
+				<div class="sales">
+					<span class="material-symbols-sharp">monitoring</span>
+					<div class="middle">
+						<div class="left">
+							<h3>Total student</h3>
+							<small>Last 24 hour</small>
+						</div>
+					</div>
+				</div>
+				<!----------------------------------End of sales------------------>
+				<div class="expensis">
+					<span class="material-symbols-sharp">bar_chart</span>
+					<div class="middle">
+						<div class="left">
+							<h3>Expensis</h3>
+							<h1>$200</h1>
+							<small>last 24 hour</small>
+						</div>
+					</div>
+				</div>
+				<!------------------------------End of Expenses------------------>
+				<div class="income">
+					<span class="material-symbols-sharp">stacked_line_chart</span>
+					<div class="middle">
+						<div class="left">
+							<h3>Income</h3>
+							<h1>$2500</h1>
+							<small>last 24 hour</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+            	<a class='card-link' href="#">
+                    <img src="shirt.png" alt="..." />
+            	<div class="card-body">
+
+                    <div class="card-title">
+                            Book Name
+                    </div>
+                    <h3 style="font-size:20px;">Author</h3>
+
+                    <h4 class='price'>Publisher</h4>
+                    </div>
+					<div class='button-wrapper'>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+						 <span class="material-symbols-sharp">star</span>
+					</div>
+                    </a>
+
+    		 </div>
+
+		</main>
+			</div>
+
+
+
+
+
+{%endblock%}

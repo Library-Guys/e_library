@@ -1,0 +1,25 @@
+<!--
+<h1>Recommended Books</h1>
+{% if recommended_books %}
+<ul>
+    {% for book in recommended_books %}
+    <li>{{ book.title }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No recommendations found.</p>
+{% endif %}-->
+
+
+<h1>Recommended Books:</h1>
+  <ul>
+    {% for book in recommended_books %}
+      <li>
+        <a href="{% url 'books:book_detail' book.slug %}">{{ book.title }}</a> 
+        by {{ book.author }} 
+        ({% if book.get_rating > 0 %}{{ book.get_rating|floatformat:1 }}{% else %}No ratings yet{% endif %})
+      </li>
+    {% empty %}
+      <p>Sorry, we couldn't find any recommended books for you at this time.</p>
+    {% endfor %}
+  </ul>

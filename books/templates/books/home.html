@@ -1,0 +1,44 @@
+{% extends "base.html"%}
+
+{%load static%}
+<head>
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/home.css' %}">
+  </head>
+{% block title%}Home{%endblock%}
+
+{%block content%}
+
+<div class="alphaFilter">
+  {% for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'|make_list %}
+
+    <a href="{% url 'books:filter' i %}" >{{ i }}</a>
+ {% endfor %}
+
+</div>
+
+{% include './recommendation.html' %}
+<div class="main">
+  <h3 class="heading"><span>All  </span>Books</h3>
+  
+  <div class="container">
+    {%for b in book %}
+      <div class="card">
+        <a class='card-link' href="{{b.get_absolute_url}}">
+          <img src="{{b.image.url}}" >
+
+          <div class="details">
+            <h3>{{b.title}}</h3>
+              <h3>Author::{{b.author}}</h3>
+              {% if b.get_rating > 0 %}
+                <h3>Rating: {{b.get_rating }} of 5</h4>
+              {%endif%}
+          </div>
+
+        </a>
+      </div>
+      {%endfor%}
+  </div>
+  
+</div>
+
+{%endblock%} 
