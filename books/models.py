@@ -50,5 +50,12 @@ class Review(models.Model):
     created_by = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
     content = models.TextField(max_length= 300)
     created_at = models.DateTimeField(auto_now_add=True)
+    isbn = models.CharField(max_length=13)
     
+    def save(self, *args, **kwargs):
+        self.isbn = self.book.isbn
+        super().save(*args, **kwargs)
+    
+    # def __str__(self):
+    #     return f"{self.created_by.username} - {self.book.title}"
     

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'auth_users.apps.AuthUsersConfig',
     'crispy_forms',
     'crispy_bootstrap5',
-
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +116,13 @@ USE_TZ = True
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+NOTEBOOK_ARGUMENTS = [
+    '--ip', '0.0.0.0',
+    '--port', '8888',
+]
+IPYTHON_KERNEL_DISPLAY_NAME = 'Django Kernel'
+# BASE_DIR["DJANGO_ALLOW_Apython manage.py shell_plus --notebookSYNC_UNSAFE"] = "true"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
