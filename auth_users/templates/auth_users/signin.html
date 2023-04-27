@@ -1,3 +1,4 @@
+
 {% load static %}
 {%block content%}
 
@@ -5,6 +6,17 @@
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
+<div>
+{% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li>
+        {% comment %} {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %} {% endcomment %}
+        {{ message }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 
   <div class="wrapper">
     <header>Login Form</header>
@@ -30,9 +42,9 @@
       <input type="submit" value="Login">
 
     </form>
-    <div class="sign-txt">Not yet member? <a href="#">Signup now</a></div>
+    <div class="sign-txt">Not yet member? <a href="{% url 'auth_users:register' %}">Signup now</a></div>
   </div>
 
-
+</div>
 
 {%endblock%}

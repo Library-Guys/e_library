@@ -49,7 +49,7 @@ def signin_page(request):
             user = User.objects.get(username=username)  # 'username = username' is to make sure user exite
 
         except:
-            messages.error(request, 'user doesnot exit')  # flash messages
+            messages.error(request, '')  # flash messages
 
         user = authenticate(request, username=username,
                             password=password)  # to authenticate and to make sure user is currect
@@ -60,6 +60,8 @@ def signin_page(request):
         else:
             messages.error(request, 'user name or email doesnot exist')
 
+    else:
+        messages.error(request, '')
     context = {
 
     }

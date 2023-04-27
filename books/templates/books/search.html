@@ -22,26 +22,24 @@
             </ul>
           </p>
         {% endif %}
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
-        
-            
-            {% for b in book %}
-          
-            <div class="col">
-              <div class="card shadow-sm">
-                <img class="img-fluid" alt="Responsive image" src="{{ b.image.url}}">
-                <div class="card-body">
-                  <p class="card-text">
-                    <a class="text-dark text-decoration-none" href="{{b.get_absolute_url}}">{{ b.title }}</a>
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted">9min read</small>
-                  </div>
+        <div class="container">
+          {%include './card.html'%}
+          {% comment %} {%for b in book %}
+            <div class="card">
+              <a class='card-link' href="{{b.get_absolute_url}}">
+                <img src="{{b.image.url}}">
+      
+                <div class="details">
+                  <h3>{{b.title}}</h3>
+                    <h3>Author::{{b.author}}</h3>
+                    {% if b.get_rating > 0 %}
+                      <h3>Rating: {{b.get_rating }} of 5</h4>
+                    {%endif%}
                 </div>
-              </div>
+      
+              </a>
             </div>
-            {% endfor %}
-  
+            {%endfor%} {% endcomment %}
         </div>
       </div>
     </div>

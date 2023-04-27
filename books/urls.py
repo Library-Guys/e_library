@@ -27,7 +27,10 @@ urlpatterns = [
     path('book-detail/<slug:slug>/', views.book_detail, name = 'book_detail'),
     path('delete-book/<str:pk>/', views.delete_book, name = 'delete_book'),
     
-    path('recommendation/', views.books_recommended, name = 'recomm'),
+    path('recommendation/', views.recommend, name = 'recomm'),
+    
+    # path('user-recommendation/<str:user_id>/', views.book_recommendations, name = 'recommendation'),         
+    path('user-recommendation/', views.book_recommendations, name = 'recommendation'),
     
     path('search/', views.search, name = 'search'),
     path('views-book/<str:pram>',views.digital_books,name="filter"),
